@@ -1,0 +1,14 @@
+/target/
+/dist/
+*.log
+# suomenkieliset kehitysversion tiedostot (julkaisu on englanniksi)
+/LUEMINUT.txt
+/KOULUTUSAINEISTO.txt
+/LISENSSIT.txt
+/lisenssit_pohja.txt
+/build*.bat
+/mallit/
+/tyokalut/
+# DDColor-lähdekoodi koulutusta varten (kloonataan erikseen)
+/DDColor/
+__pycache__/

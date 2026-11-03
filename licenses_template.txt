@@ -1,0 +1,69 @@
+BW2COLOR MOVIE – COMPONENT LICENCES
+===================================
+
+This file lists all parts of BW2Color Movie and their licences. The list of Rust libraries at the end is
+generated with `python tools/licenses.py`.
+
+
+1. BW2COLOR MOVIE'S OWN CODE
+----------------------------
+BW2Color Movie (src, build scripts, training tools, documentation)     MIT – see LICENSE
+You may use, modify and distribute the code freely, also commercially, as long as the copyright and
+permission notice in LICENSE is kept with copies.
+
+
+2. FILES DISTRIBUTED WITH THE RELEASE
+-------------------------------------
+BW2Color.exe               contains the Rust libraries listed in section 6 and ONNX Runtime
+  ONNX Runtime 1.x         MIT                Microsoft – https://github.com/microsoft/onnxruntime
+                           (statically linked through the pyke/ort library; ort: MIT OR Apache-2.0)
+DirectML.dll               Microsoft Software License Terms for Microsoft DirectX Machine Learning
+                           (DirectML) – allows distribution with machine-learning applications; Microsoft's
+                           notices must not be removed. https://www.nuget.org/packages/Microsoft.AI.DirectML
+msvcp140.dll, msvcp140_1.dll, vcruntime140.dll, vcruntime140_1.dll
+                           Microsoft Visual C++ runtime. Distributable in the application folder under the
+                           "Distributable Code" terms of the Visual Studio licence.
+Fonts (egui)               epaint_default_fonts: (MIT OR Apache-2.0) AND OFL-1.1 AND Ubuntu-font-1.0
+
+models/ddcolor_suomi/ddcolor_suomi.onnx
+                           Apache-2.0. A derivative of DDColor (piddnad/DDColor, Apache-2.0,
+                           Copyright (c) the DDColor authors): the ModelScope DDColor weights fine-tuned by the
+                           BW2Color Movie project. Changes: further training of the decoder and the last encoder
+                           stage on freely licensed colour material, an added film-style input ("tyyli") and an
+                           output colour gain. Details: MODEL_CARD.md. Training data sources and credits:
+                           TRAINING_DATA.txt.
+models/tunnistin/varittamaton.onnx
+                           MIT (same as the application). The project's own uncoloured-area detector (U-Net),
+                           trained on the same freely licensed material.
+
+
+3. ADD-ONS (downloaded by the user on the Add-ons tab, not part of the release)
+------------------------------------------------------------------------------
+FFmpeg (BtbN, win64-gpl)   GPL-3.0            https://github.com/BtbN/FFmpeg-Builds
+                           Run as a separate program (ffmpeg.exe/ffprobe.exe); BW2Color Movie does not link to
+                           it. The licence is saved to ffmpeg\LICENSE.txt. Source code: https://ffmpeg.org
+DINOv2-small               Apache-2.0         facebookresearch/dinov2 – https://github.com/facebookresearch/dinov2
+  Scene memory. Model facebook/dinov2-small, ONNX conversion onnx-community/dinov2-small (Hugging Face).
+  Copyright (c) Meta Platforms, Inc. and affiliates.
+
+
+4. SEPARATE PROGRAMS (installed by the user, optional)
+------------------------------------------------------
+Ollama                     MIT                https://github.com/ollama/ollama
+  Only for the Assistant functions (recommendations, scene analysis, quality report).
+Qwen2.5-VL 7B (qwen2.5vl:7b) Apache-2.0      https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
+  Downloaded into Ollama. Other vision models have their own licences – check before use.
+
+
+5. TRAINING TOOLS (training/, not part of the release)
+-----------------------------------------------------
+The Python training tools use PyTorch (BSD-3-Clause), the DDColor source code (Apache-2.0), scikit-image
+(BSD-3-Clause), NumPy (BSD-3-Clause), Pillow (MIT-CMU) and PyAV (BSD-3-Clause), installed separately.
+
+
+6. RUST LIBRARIES (BW2Color.exe)
+--------------------------------
+Of dual-licensed libraries (e.g. "MIT OR Apache-2.0", "Apache-2.0 OR GPL-2.0-only") BW2Color Movie uses the
+permissive MIT or Apache-2.0 option. The licence texts are in the source packages (https://crates.io).
+
+  Library                            Version    Licence
